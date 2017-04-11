@@ -1,0 +1,25 @@
+{
+  "name": "melibot",
+  "version": "1.0.0",
+  "description": "aplicativo para chatbot mercado livre",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gsilvap1994/MeliBot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gsilvap1994/MeliBot/issues"
+  },
+  "homepage": "https://github.com/gsilvap1994/MeliBot#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "mercadolibre": "0.0.13",
+    "nodemon": "^1.11.0",
+    "nunjucks": "^3.0.0"
+  }
+}
