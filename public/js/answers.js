@@ -1,13 +1,12 @@
-/*$(function() {
-    alert("Olá Helisson, como posso te ajudar?");
-    $.getJSON("keyAndAns.json", function(json) {
-      console.log(json);
-    });
+$(function() {
+    var name = $('#name').val();
+    alert(name);
+    $('#messages').append("<li class ='message-mel'>"+greeting(name)+"</li>");
 });
-*/
 
-$('#send').on('click', function(){
-  $('body').append(answerQuestion($('#message').val()));
+
+
+/*  $('body').append(answerQuestion($('#message').val()));
 });
 
 function answerQuestion(keyword) {
@@ -19,3 +18,4 @@ function searchJSON(keyword) {
   var parsedObjetc = JSON.parse('keyAndAns.json');
   alert(parsedObject);
 }
+*/

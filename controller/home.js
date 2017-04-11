@@ -11,7 +11,7 @@ module.exports = function(app) {
   app.get('/chat', function(req, res) {
     meliObject.get('/users/me', function(err, user) {
       console.log(err, user);
-      var nome = user.first_name+' '+user.last_name;
+      var nome = user.first_name;
       res.render('chat', { nome: nome });
     });
   });
