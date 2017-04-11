@@ -7,7 +7,7 @@ module.exports = function(app) {
     res.render('index');
   });
 
-  app.get('/login'. function(req, res){
+  app.get('/login', function(req, res){
     res.redirect(meliObject.getAuthURL());
   });
 }
