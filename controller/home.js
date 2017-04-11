@@ -9,11 +9,11 @@ module.exports = function(app) {
   });
 
   app.get('/chat', function(req, res) {
-    var nome;
     meliObject.get('/users/me', function(err, user) {
-      nome = user.first_name+' '+user.last_name;
+      console.log(err, user);
+      var nome = user.first_name+' '+user.last_name;
+      res.render('chat', { nome: nome });
     });
-    res.render('chat', { nome: nome });
   });
 
   app.get('/login', function(req,res) {
