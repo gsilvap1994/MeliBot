@@ -4,22 +4,22 @@ var meliObject = new meli.Meli(1283046950684731, 'ib2T7nrbarDfkbiXbSVfurVUxuYmfl
 
 module.exports = function(app) {
   app.get('/', function(req, res) {
-    res.render('index');
+    var _url = meliObject.getAuthURL('https://meli-bot.herokuapp.com/login');
+    res.render('index', { url: _url });
   });
 
   app.get('/chat', function(req, res) {
-    res.render('chat');
+    var nome;
+    meliObject.get('/users/me', function(err, user) {
+      nome = user.first_name+' '+user.last_name;
+    });
+    res.render('chat', { nome: nome });
   });
 
-  app.get('/login', function(req, res){
-    res.redirect(meliObject.getAuthURL('https://meli-bot.herokuapp.com/chat'));
-  });
-
-  app.get('/chat', function(req,res) {
+  app.get('/login', function(req,res) {
     meliObject.authorize(req.query.code, 'https://meli-bot.herokuapp.com/chat', function(err, auth) {
-        meliObject.get('/users/me', function (err, user) {
-          console.log(user);
-        });
+      console.log(err, auth);
+      res.redirect('/chat');
     });
   });
 }
