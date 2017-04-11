@@ -7,6 +7,10 @@ module.exports = function(app) {
     res.render('index');
   });
 
+  app.get('/chat', function(req, res) {
+    res.render('chat');
+  });
+
   app.get('/login', function(req, res){
     res.redirect(meliObject.getAuthURL());
   });
