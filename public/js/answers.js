@@ -4,6 +4,10 @@ $(function() {
     $('#messages').append("<li class ='message-mel'>"+greeting(name)+"</li>");
 });
 
+$('#submit').click(function(){
+  var msgUser = $('#message-user').val();
+  $('#messages').append("<li class='message-user'>"+ msgUser +"</li>");
+});
 
 
 /*  $('body').append(answerQuestion($('#message').val()));
