@@ -17,11 +17,9 @@ module.exports = function(app) {
 
   app.get('/chat', function(req,res) {
     meliObject.authorize(req.query.code, 'https://meli-bot.herokuapp.com/chat', function(err, auth) {
-      meliObject.refreshAccessToken(function (err, auth){
         meliObject.get('/users/me', function (err, user) {
           console.log(user);
         });
-      });
     });
   });
 }
