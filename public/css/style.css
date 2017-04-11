@@ -28,3 +28,11 @@
 #send {
   color: blue;
 }
+
+.input-message-box {
+  background-color: #D7CCC8;
+}
+
+.messages-board {
+  margin-bottom: 468px;
+}

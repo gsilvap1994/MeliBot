@@ -8,31 +8,42 @@
     <link rel="stylesheet" href="css/materialize.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-  <body>
+<body>
     <nav class="menu">
       <div class="nav-wrapper navigation valign-wrapper z-depth-1">
         <img src="img/chatbot.png" class="responsive-img center-align valign icon"/>
         <h5 class="title">MeliBot {{ nome }}</h5>
       </div>
     </nav>
-    <div class="container">
-    <div class="row">
-      <form class="col s12">
-        <div class="row">
-          <div class="input-field col s9">
-              <input  placeholder="DIGITE SUA MENSAGEM" id="message" type="text">
-          </div>
-          <div class="col s3">
-            <a href="#" class="waves-effect waves-light btn" id="submit">FAZER LOGIN</a>
-          </div>
+
+    <div class="container messages-board">
+      <div class="row">
+        <div class="col s12">
+          <ul id="messages"></ul>
+        </div>
       </div>
-    </form>
-  </div>
-  </div>
+    </div>
+
+<div class="input-message-box">
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s9">
+                  <input  placeholder="DIGITE SUA MENSAGEM" id="message" type="text">
+              </div>
+              <div class="col s3">
+                <a href="#" class="waves-effect waves-light btn" id="submit">ENVIAR</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </footer>
+</div>
       <script src="js/jquery.min.js"></script>
       <script src="js/materialize.min.js"></script>
-      <script src="js/conectingApi.js"></script>
-      <script erc="js/keyAndAns.js"></script>
       <script src="js/answers.js"></script>
-  </body>
+</body>
 </html>
