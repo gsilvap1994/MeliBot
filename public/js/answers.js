@@ -11,7 +11,7 @@ $( function() {
         name = user.first_name;
         token = user.access_token;
     });
-    
+
     $('#messages').append("<li class ='message-mel'>"+greeting(name)+"</li>");
     console.log("teste: "+token);
 });
@@ -55,8 +55,6 @@ function answerQuestion(question, name) {
   else {
     return "Precisa ser mais claro, ainda estou em construção, me desculpe.";
   }
-
-  if(/^/i.test)
 }
 
 function AnswerQuestion(question, name) {
