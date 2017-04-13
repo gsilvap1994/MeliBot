@@ -1,6 +1,6 @@
 const meli = require('mercadolibre');
-const access_token;
-const refresh_token;
+var access_token;
+var refresh_token;
 var meliObject = new meli.Meli(1283046950684731, 'ib2T7nrbarDfkbiXbSVfurVUxuYmflaa');
 
 module.exports = function(app) {
