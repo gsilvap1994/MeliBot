@@ -9,18 +9,17 @@ $( function() {
     }).done(function(user) {
         console.log(user);
         user = user;
+        $('#name').val(user.first_name);
+        $('#messages').append("<li class ='message-mel'>"+greeting(user.first_name)+"</li>");
     });
 
-    $.ajax({
+  $.ajax({
       url: '/api/token',
       method: 'post'
     }).done(function(tokens){
       console.log(tokens);
       token = tokens;
     });
-    $('#name').val(user.first_name);
-    $('#messages').append("<li class ='message-mel'>"+greeting(user.first_name)+"</li>");
-    console.log("teste: "+token);
 });
 
 $('#submit').click(function() {
