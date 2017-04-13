@@ -81,21 +81,22 @@ function answerQuestion(question) {
 // menu para buscar produto
 function searchProduct(question) {
   $.ajax({
-    url: 'https://api.mercadolibre.com/sites/MLB/search?q='+question.replace(/ /g, '+')+'&limit=3&access_token='+token.token,
+    url: 'https://api.mercadolibre.com/sites/MLB/search?q='+question.replace(/ /g, '+')+'&limit=3',
     method: 'get'
-  }).done(function(product) {
+  }).then(function(product) {
     product.results.forEach(function(result, index, array) {
       var _product = '<a href="#" class="selected-product"><span class='+result.seller_address.zip_code+'>'+result.title+'</span></a>';
       print(_product);
-      if(index === array.length - 1) {
-        session = 'ship';
-      }
     });
+  }).then(function(){
+    session = 'chip';
+    alert("oi");
   });
 }
 
 // menu para calcular o frete ou finalizar a compra
 function shipOrEnd(question){
+  alert("asdasd");
   $('.selected-product').click(function() {
     var zip_code_product = $(this).children('span').attr('class').toString();
     print("Deseja saber o frete?");
