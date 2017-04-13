@@ -2,8 +2,8 @@ var user ;/*$('#name').val(); */ // "Gabriel";
 var token ;//{{ token }};
 
 
-$.ajax({
 $( function() {
+  $.ajax({
         url: '/api/user',
         method: 'get'
     }).done(function(user) {
