@@ -87,10 +87,11 @@ function searchProduct(question) {
     product.results.forEach(function(result, index, array) {
       var _product = '<a href="#" class="selected-product"><span class='+result.seller_address.zip_code+'>'+result.title+'</span></a>';
       print(_product);
+      if (index === array.length - 1) {
+        session = 'ship';
+        alert("oi, session = "+session)/
+      }
     });
-  }).then(function(){
-    session = 'chip';
-    alert("oi");
   });
 }
 
