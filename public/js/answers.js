@@ -57,6 +57,9 @@ function mainController() {
     case 'ship':
       shipOrEnd(msgUser);
       break;
+    case 'end':
+      end(msgUser);
+      break;
   }
 }
 
@@ -81,26 +84,27 @@ function answerQuestion(question) {
 // menu para buscar produto
 function searchProduct(question) {
   $.ajax({
-    url: 'https://api.mercadolibre.com/sites/MLB/search?q='+question.replace(/ /g, '+')+'&limit=3',
+    url: 'https://api.mercadolibre.com/sites/MLB/search?q='+question.replace(/ /g, '+')+'&limit=3',//$access_token='+token.token,
     method: 'get'
-  }).then(function(product) {
+  })
+  .then(function(product) {
+    print("Esses são os 3 melhores resultados que achei. O que acha de escolher um deles? Ou então me fale se você quiser ver mais resultados.")
     product.results.forEach(function(result, index, array) {
-      var _product = '<a href="#" class="selected-product"><span class='+result.seller_address.zip_code+'>'+result.title+'</span></a>';
+      var _product = '<a href="#" class="selected-product"><span class="title">'+result.title+'</span> <span class="price">'+result.price+'</span> R$</a>';
       print(_product);
-      if (index === array.length - 1) {
-        session = 'ship';
-        alert("oi, session = "+session);
-      }
+      $('.selected-product').click(function(){
+        print("Deseja comprar esse produto?");
+      });
     });
   });
 }
 
 // menu para calcular o frete ou finalizar a compra
+/*
 function shipOrEnd(question){
   alert("asdasd");
   $('.selected-product').click(function() {
     var zip_code_product = $(this).children('span').attr('class').toString();
-    print("Deseja saber o frete?");
     if(/^sim|ok|desejo|quero|bem/i.test()) {
       $.ajax({
         url: 'https://api.mercadolibre.com/sites/MLa/shipping_options?zip_code_from='+zip_code_product+'&to='+user.zip_code,
@@ -113,6 +117,7 @@ function shipOrEnd(question){
     }
   });
 }
+*/
 
 // imprime na tela
 function print(answer) {
