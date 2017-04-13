@@ -1,18 +1,25 @@
-var name ;/*$('#name').val(); */ // "Gabriel";
+var user ;/*$('#name').val(); */ // "Gabriel";
 var token ;//{{ token }};
 
 
+$.ajax({
 $( function() {
-    $.ajax({
         url: '/api/user',
-        method: 'post',
+        method: 'get'
     }).done(function(user) {
         console.log(user);
-        name = user.first_name;
-        token = user.access_token;
+        user = user;
     });
 
-    $('#messages').append("<li class ='message-mel'>"+greeting(name)+"</li>");
+    $.ajax({
+      url: '/api/token',
+      method: 'post'
+    }).done(function(tokens){
+      console.log(tokens);
+      token = tokens;
+    });
+    $('#name').val(user.first_name);
+    $('#messages').append("<li class ='message-mel'>"+greeting(user.first_name)+"</li>");
     console.log("teste: "+token);
 });
 
