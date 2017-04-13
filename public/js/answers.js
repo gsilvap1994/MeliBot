@@ -89,7 +89,7 @@ function searchProduct(question) {
       print(_product);
       if (index === array.length - 1) {
         session = 'ship';
-        alert("oi, session = "+session)/
+        alert("oi, session = "+session);
       }
     });
   });
