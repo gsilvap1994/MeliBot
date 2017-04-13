@@ -84,9 +84,12 @@ function searchProduct(question) {
     url: 'https://api.mercadolibre.com/sites/MLB/search?q='+question.replace(/ /g, '+')+'&limit=3&access_token='+tokens.access_token,
     method: 'get'
   }).done(function(product) {
-    product.results.forEach(function(result) {
+    product.results.forEach(function(result, index, array) {
       var _product = '<a href="#" class="selected-product"><span class='+result.seller_address.zip_code+'>'+result.title+'</span></a>';
       print(_product);
+      if(index === array.length - 1) {
+        session = 'ship';
+      }
     });
   });
 }
@@ -97,8 +100,8 @@ function shipOrEnd(question){
     var zip_code_product = $(this).children('span').attr('class').toString();
     print("Deseja saber o frete?");
     if(/^sim|ok|desejo|quero|bem/i.test()) {
-      .ajax({
-        url: 'https://api.mercadolibre.com/sites/MLa/shipping_options?zip_code_from='+zip_code_product+'&to='user.zip_code,
+      $.ajax({
+        url: 'https://api.mercadolibre.com/sites/MLa/shipping_options?zip_code_from='+zip_code_product+'&to='+user.zip_code,
         method:'get'
       }).done(function(shipping){
         shipping.options.forEach(function(option) {
