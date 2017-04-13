@@ -81,7 +81,7 @@ function answerQuestion(question) {
 // menu para buscar produto
 function searchProduct(question) {
   $.ajax({
-    url: 'https://api.mercadolibre.com/sites/MLB/search?q='+question.replace(/ /g, '+')+'&limit=3&access_token='+tokens.access_token,
+    url: 'https://api.mercadolibre.com/sites/MLB/search?q='+question.replace(/ /g, '+')+'&limit=3&access_token='+token.access_token,
     method: 'get'
   }).done(function(product) {
     product.results.forEach(function(result, index, array) {
