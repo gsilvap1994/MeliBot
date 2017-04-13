@@ -36,3 +36,7 @@
 .messages-board {
   margin-bottom: 468px;
 }
+
+.message-user {
+  text-align: right;
+}
